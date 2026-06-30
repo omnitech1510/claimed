@@ -75,7 +75,7 @@ export default function NewGoalForm({ locked }) {
         <p className="mb-4">Pick a plan to start a new goal.</p>
         <a
           href="/billing"
-          className="inline-block px-5 py-2 bg-stamp text-paper rounded-sm font-mono text-sm"
+          className="inline-block px-5 py-2 bg-stamp text-ink rounded-sm font-mono text-sm"
         >
           see plans
         </a>
@@ -141,7 +141,7 @@ export default function NewGoalForm({ locked }) {
           <button
             type="submit"
             disabled={saving}
-            className="px-5 py-2 bg-stamp text-paper rounded-sm font-mono text-sm disabled:opacity-50"
+            className="px-5 py-2 bg-stamp text-ink rounded-sm font-mono text-sm disabled:opacity-50"
           >
             {saving ? "saving…" : "start this goal"}
           </button>

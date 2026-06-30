@@ -24,7 +24,7 @@ export default function PayButton({ plan, label }) {
       <button
         onClick={handleClick}
         disabled={loading}
-        className="w-full px-5 py-3 bg-stamp text-paper rounded-sm font-mono text-sm disabled:opacity-50"
+        className="w-full px-5 py-3 bg-stamp text-ink rounded-sm font-mono text-sm disabled:opacity-50"
       >
         {loading ? "redirecting…" : label}
       </button>

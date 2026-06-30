@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --paper: #eef3f7;
-  --paper-dim: #dde6ee;
-  --ink: #0c2340;
-  --ink-soft: #2c6694;
-  --stamp: #0a0a0a;
+  --paper: #0c1f33;
+  --paper-dim: #142b45;
+  --ink: #f4f8fb;
+  --ink-soft: #9fc3e3;
+  --stamp: #050a14;
   --stamp-dim: #4a90d9;
   --claim: #4a90d9;
 }
@@ -25,9 +25,9 @@ body {
 body {
   font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
   background-image:
-    radial-gradient(circle at 20% 0%, rgba(29, 43, 79, 0.05), transparent 45%),
-    radial-gradient(circle at 90% 30%, rgba(184, 57, 42, 0.04), transparent 40%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.02 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    radial-gradient(circle at 15% 0%, rgba(74, 144, 217, 0.16), transparent 45%),
+    radial-gradient(circle at 90% 20%, rgba(44, 102, 148, 0.18), transparent 40%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.035 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-attachment: fixed;
 }
 
@@ -38,16 +38,16 @@ body {
 /* The claim ticket: this app's one signature visual, reused for goals everywhere. */
 .ticket {
   position: relative;
-  background: #f3f6f9;
-  border: 1px solid var(--ink);
+  background: #16314e;
+  border: 1px solid rgba(159, 195, 227, 0.35);
   border-radius: 2px;
-  box-shadow: 3px 3px 0 var(--ink);
+  box-shadow: 3px 3px 0 rgba(5, 10, 20, 0.6);
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 a.ticket:hover,
 .ticket.is-hoverable:hover {
-  box-shadow: 5px 6px 0 var(--ink);
+  box-shadow: 5px 6px 0 rgba(5, 10, 20, 0.6), 0 0 24px rgba(74, 144, 217, 0.25);
   transform: translate(-1px, -2px);
 }
 
@@ -73,7 +73,7 @@ a.ticket:hover,
 
 .ticket-divider {
   border-top: 2px dashed var(--ink-soft);
-  opacity: 0.35;
+  opacity: 0.3;
 }
 
 /* The stamp that lands when a goal is fully funded. */
@@ -166,6 +166,31 @@ a.ticket:hover,
   .bubble-text:hover .letter {
     transform: none;
     color: inherit;
+  }
+}
+
+/* Buttons "pop" as a whole on hover — same playful family as the text bubble,
+   but buttons move together since they're a single clickable target. Never
+   applied to <a> links, which use their own underline/color hover instead. */
+button:not(a button) {
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+button:not(a button):hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.04);
+}
+
+button:not(a button):active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button:not(a button) {
+    transition: none;
+  }
+  button:not(a button):hover:not(:disabled),
+  button:not(a button):active:not(:disabled) {
+    transform: none;
   }
 }
 

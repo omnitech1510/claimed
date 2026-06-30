@@ -99,7 +99,7 @@ function StatusTag({ status, daysLeft }) {
   const styles = {
     active: "bg-claim text-paper",
     trial: "border border-ink-soft/40",
-    locked: "bg-stamp text-paper",
+    locked: "bg-stamp text-ink",
   };
   const label = status === "trial" ? `trial (${daysLeft}d)` : status;
   return (
