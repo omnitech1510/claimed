@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BubbleText from "./BubbleText";
 
 export default function Home() {
   return (
@@ -23,9 +24,8 @@ export default function Home() {
               No.0001 — A SAVINGS TICKET
             </p>
             <h1 className="text-5xl md:text-6xl font-extrabold leading-[1.05] mb-6">
-              Paste a link.
-              <br />
-              Watch the gap close.
+              <BubbleText as="span" text="Paste a link." className="block" />
+              <BubbleText as="span" text="Watch the gap close." className="block" />
             </h1>
             <p className="text-lg text-ink-soft mb-8 max-w-md">
               Drop in anything you want — a link, a price, a photo. Log what you

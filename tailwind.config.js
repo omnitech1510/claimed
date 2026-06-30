@@ -4,13 +4,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        paper: "#E9EEF3",
-        "paper-dim": "#DCE3EA",
-        ink: "#1D2B4F",
-        "ink-soft": "#3C4A6E",
-        stamp: "#C8442D",
-        "stamp-dim": "#E2A89C",
-        claim: "#1F6F5C",
+        paper: "#EEF3F7",
+        "paper-dim": "#DDE6EE",
+        ink: "#0C2340",
+        "ink-soft": "#2C6694",
+        stamp: "#0A0A0A",
+        "stamp-dim": "#4A90D9",
+        claim: "#4A90D9",
       },
       fontFamily: {
         mono: ["IBM Plex Mono", "ui-monospace", "monospace"],
