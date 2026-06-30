@@ -49,7 +49,7 @@ export default function Home() {
               saved={214}
               target={349.99}
             />
-            <ClaimedTicket title="A weekend in Lalibela" />
+            <ClaimedTicket title="A week in Switzerland" />
           </div>
         </section>
 
