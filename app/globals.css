@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: #e9eef3;
+  --paper-dim: #dce3ea;
+  --ink: #1d2b4f;
+  --ink-soft: #3c4a6e;
+  --stamp: #c8442d;
+  --stamp-dim: #e2a89c;
+  --claim: #1f6f5c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+body {
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-mono {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+/* The claim ticket: this app's one signature visual, reused for goals everywhere. */
+.ticket {
+  position: relative;
+  background: #f3f6f9;
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.ticket::before,
+.ticket::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 14px;
+  background-image: radial-gradient(circle, var(--paper) 4px, transparent 4.5px);
+  background-size: 14px 16px;
+  background-repeat: repeat-y;
+}
+
+.ticket::before {
+  left: -7px;
+}
+
+.ticket::after {
+  right: -7px;
+}
+
+.ticket-divider {
+  border-top: 2px dashed var(--ink-soft);
+  opacity: 0.35;
+}
+
+/* The stamp that lands when a goal is fully funded. */
+@keyframes stamp-down {
+  0% {
+    transform: rotate(-8deg) scale(2.4);
+    opacity: 0;
+  }
+  60% {
+    transform: rotate(-8deg) scale(0.92);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-8deg) scale(1);
+    opacity: 1;
+  }
+}
+
+.stamp-claimed {
+  animation: stamp-down 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  color: var(--stamp);
+  border: 3px solid var(--stamp);
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: 0.12em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stamp-claimed {
+    animation: none;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--stamp);
+  outline-offset: 2px;
+}
