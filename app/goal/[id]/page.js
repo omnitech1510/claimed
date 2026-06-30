@@ -57,7 +57,7 @@ export default async function GoalPage({ params }) {
               <span>OF ${Number(goal.target_amount).toFixed(2)}</span>
             </div>
             <div className="h-4 bg-paper-dim rounded-sm overflow-hidden">
-              <div className="h-full bg-claim" style={{ width: `${pct}%` }} />
+              <div className="h-full bg-claim bar-fill" style={{ width: `${pct}%` }} />
             </div>
             <p className="font-mono text-xs text-ink-soft mt-2">{pct}% there</p>
           </>

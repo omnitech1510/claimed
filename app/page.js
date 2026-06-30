@@ -125,7 +125,7 @@ function DemoTicket({ title, saved, target }) {
       </div>
       <div className="h-3 bg-paper-dim rounded-sm overflow-hidden">
         <div
-          className="h-full bg-claim"
+          className="h-full bg-claim bar-fill"
           style={{ width: `${pct}%` }}
         />
       </div>

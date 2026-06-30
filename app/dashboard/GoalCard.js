@@ -26,7 +26,7 @@ export default function GoalCard({ goal }) {
   }
 
   return (
-    <div className="ticket px-6 py-6 hover:-translate-y-0.5 transition-transform">
+    <div className="ticket is-hoverable px-6 py-6 transition-transform">
       <a href={`/goal/${goal.id}`} className="block">
         <div className="flex justify-between items-start mb-4">
           <div className="min-w-0">
@@ -58,7 +58,7 @@ export default function GoalCard({ goal }) {
         )}
         {!claimed && (
           <div className="h-3 bg-paper-dim rounded-sm overflow-hidden mb-4">
-            <div className="h-full bg-claim" style={{ width: `${pct}%` }} />
+            <div className="h-full bg-claim bar-fill" style={{ width: `${pct}%` }} />
           </div>
         )}
       </a>

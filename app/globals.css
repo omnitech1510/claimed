@@ -7,7 +7,7 @@
   --paper-dim: #dce3ea;
   --ink: #1d2b4f;
   --ink-soft: #3c4a6e;
-  --stamp: #c8442d;
+  --stamp: #b8392a;
   --stamp-dim: #e2a89c;
   --claim: #1f6f5c;
 }
@@ -24,6 +24,11 @@ body {
 
 body {
   font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  background-image:
+    radial-gradient(circle at 20% 0%, rgba(29, 43, 79, 0.05), transparent 45%),
+    radial-gradient(circle at 90% 30%, rgba(184, 57, 42, 0.04), transparent 40%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.02 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-attachment: fixed;
 }
 
 .font-mono {
@@ -37,6 +42,13 @@ body {
   border: 1px solid var(--ink);
   border-radius: 2px;
   box-shadow: 3px 3px 0 var(--ink);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+a.ticket:hover,
+.ticket.is-hoverable:hover {
+  box-shadow: 5px 6px 0 var(--ink);
+  transform: translate(-1px, -2px);
 }
 
 .ticket::before,
@@ -67,12 +79,18 @@ body {
 /* The stamp that lands when a goal is fully funded. */
 @keyframes stamp-down {
   0% {
-    transform: rotate(-8deg) scale(2.4);
+    transform: rotate(-10deg) scale(2.6);
     opacity: 0;
   }
-  60% {
-    transform: rotate(-8deg) scale(0.92);
+  55% {
+    transform: rotate(-6deg) scale(0.9);
     opacity: 1;
+  }
+  70% {
+    transform: rotate(-9deg) scale(1.04);
+  }
+  85% {
+    transform: rotate(-7deg) scale(0.98);
   }
   100% {
     transform: rotate(-8deg) scale(1);
@@ -81,15 +99,47 @@ body {
 }
 
 .stamp-claimed {
-  animation: stamp-down 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation: stamp-down 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
   color: var(--stamp);
   border: 3px solid var(--stamp);
   font-family: "IBM Plex Mono", ui-monospace, monospace;
   letter-spacing: 0.12em;
+  box-shadow: 0 0 0 1px rgba(184, 57, 42, 0.15) inset;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .stamp-claimed {
+    animation: none;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(250%);
+  }
+}
+
+.bar-fill {
+  position: relative;
+  overflow: hidden;
+}
+
+.bar-fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  animation: shimmer 2.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar-fill::after {
     animation: none;
   }
 }
