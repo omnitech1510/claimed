@@ -77,7 +77,7 @@ export default function GoalCard({ goal }) {
           <button
             type="submit"
             disabled={saving}
-            className="px-3 py-1.5 bg-ink text-paper rounded-sm font-mono text-xs disabled:opacity-50"
+            className="px-3 py-1.5 bg-claim text-paper rounded-sm font-mono text-xs disabled:opacity-50"
           >
             {saving ? "…" : "log it"}
           </button>

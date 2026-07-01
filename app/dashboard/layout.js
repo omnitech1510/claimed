@@ -54,7 +54,7 @@ function StatusBadge({ status, daysLeft }) {
   return (
     <Link
       href="/billing"
-      className="font-mono text-xs px-3 py-1 bg-stamp text-ink rounded-sm"
+      className="font-mono text-xs px-3 py-1 bg-paper text-ink rounded-sm"
     >
       trial ended — pick a plan
     </Link>

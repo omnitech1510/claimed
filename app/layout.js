@@ -1,4 +1,5 @@
 import "./globals.css";
+import IntroAnimation from "./IntroAnimation";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
 const title = "claimed. — save toward the thing you actually want";
@@ -41,6 +42,7 @@ export default function RootLayout({ children }) {
         <link rel="apple-touch-icon" href="/icons/icon.svg" />
       </head>
       <body>
+        <IntroAnimation />
         {children}
         <script
           dangerouslySetInnerHTML={{

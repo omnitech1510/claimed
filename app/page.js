@@ -13,7 +13,7 @@ export default function Home() {
             </Link>
             <Link
               href="/signup"
-              className="px-4 py-1.5 bg-ink text-paper rounded-sm hover:bg-stamp hover:text-ink transition-colors"
+              className="px-4 py-1.5 bg-claim text-paper rounded-sm hover:opacity-80 transition-opacity"
             >
               start free
             </Link>
@@ -39,7 +39,7 @@ export default function Home() {
             <div className="flex items-center gap-4">
               <Link
                 href="/signup"
-                className="px-6 py-3 bg-stamp text-ink rounded-sm font-mono text-sm hover:opacity-90 transition-opacity"
+                className="px-6 py-3 bg-ink text-claim border border-claim rounded-sm font-mono text-sm hover:bg-claim hover:text-paper transition-colors"
               >
                 start your first goal →
               </Link>
